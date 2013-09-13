@@ -54,5 +54,6 @@
 @property (nonatomic, strong) NSString *artist;
 @property (nonatomic, strong) NSString *imageURLString;
 @property (nonatomic, strong) NSString *appURLString;
+@property (nonatomic, strong) NSString *appPrice;
 
 @end

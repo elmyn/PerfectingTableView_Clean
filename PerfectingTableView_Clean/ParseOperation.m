@@ -55,6 +55,7 @@ static NSString *kNameStr   = @"im:name";
 static NSString *kImageStr  = @"im:image";
 static NSString *kArtistStr = @"im:artist";
 static NSString *kEntryStr  = @"entry";
+static NSString *kPriceStr  = @"im:price";
 
 
 @interface ParseOperation () <NSXMLParserDelegate>
@@ -80,7 +81,7 @@ static NSString *kEntryStr  = @"entry";
     if (self != nil)
     {
         _dataToParse = data;
-        _elementsToParse = [[NSArray alloc] initWithObjects:kIDStr, kNameStr, kImageStr, kArtistStr, nil];
+        _elementsToParse = [[NSArray alloc] initWithObjects:kIDStr, kNameStr, kImageStr, kArtistStr, kPriceStr, nil];
     }
     return self;
 }
@@ -167,6 +168,10 @@ static NSString *kEntryStr  = @"entry";
             else if ([elementName isEqualToString:kArtistStr])
             {
                 self.workingEntry.artist = trimmedString;
+            }
+            else if ([elementName isEqualToString:kPriceStr])
+            {
+                self.workingEntry.appPrice = trimmedString;
             }
         }
         else if ([elementName isEqualToString:kEntryStr])
